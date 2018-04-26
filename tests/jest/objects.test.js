@@ -1,4 +1,4 @@
-import { objects } from '/';
+import { objects } from '../../src';
 
 test('objectKeyFilter', () => {
   const propTypes = {
