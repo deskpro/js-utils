@@ -6,17 +6,14 @@ export const DECIMAL_POINT = '.';
  *
  * @param {number} number Number to format
  * @param {number} decimals Number of decimals to show
- * @param {string} decPoint
- * @param {string} separator Separator character
+ * @param {string} dec
+ * @param {string} sep Separator character
  * @returns {string}
  */
-export function numberFormat(num, decimals = 0, decPoint = DECIMAL_POINT, separator = THOUSANDTHS_SEPARATOR) {
+export function numberFormat(num, decimals = 0, dec = DECIMAL_POINT, sep = THOUSANDTHS_SEPARATOR) {
   // Strip all characters but numerical ones.
-  const number = (num + '').replace(/[^0-9+\-Ee.]/g, '');
-  const n = !isFinite(+number) ? 0 : +number;
+  const n = (num + '').replace(/[^0-9+\-Ee.]/g, '');
   const prec = !isFinite(+decimals) ? 0 : Math.abs(decimals);
-  const sep = (typeof separator === 'undefined') ? ',' : separator;
-  const dec = (typeof decPoint === 'undefined') ? '.' : decPoint;
   const toFixedFix = function (n, prec) {
     const k = Math.pow(10, prec);
     return '' + Math.round(n * k) / k;
