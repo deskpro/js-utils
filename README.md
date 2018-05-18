@@ -31,6 +31,8 @@ npm i @deskpro/js-utils --save
   Formats a number to include commas (or any separator) in the thousandths place.
 * [numbers/numberRandom](docs/numbers/number_random.md)  
   Returns a random whole number between a minimum and maximum number.
+* [numbers/formatFileSize](docs/numbers/format_file_size.md)  
+  Format a file size into a human readable string
 
 ### Objects
 * [objects/objectKeyFilter](docs/objects/object_key_filter.md)  
