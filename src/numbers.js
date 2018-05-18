@@ -40,3 +40,14 @@ export function numberFormat(num, decimals = 0, dec = DECIMAL_POINT, sep = THOUS
 export function numberRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+export function formatFileSize(size) {
+  if(size <= 0) {
+    return "0 bytes";
+  }
+
+  const abbreviations = ["bytes", "kB", "MB", "GB"];
+  const index = Math.floor(Math.log(size) / Math.log(1000));
+
+  return `${+(size / Math.pow(1000, index)).toPrecision(3)} ${abbreviations[index]}`;
+}

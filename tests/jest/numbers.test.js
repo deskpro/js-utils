@@ -29,3 +29,11 @@ test('numberRandom', () => {
     expect(r).toBeLessThanOrEqual(val[1]);
   });
 });
+
+test('formatFileSize', () => {
+  expect(numbers.formatFileSize(1234)).toBe('1.23 kB');
+  expect(numbers.formatFileSize(0)).toBe('0 bytes');
+  expect(numbers.formatFileSize(null)).toBe('0 bytes');
+  expect(numbers.formatFileSize(1234567)).toBe('1.23 MB');
+  expect(numbers.formatFileSize(12345678910)).toBe('12.3 GB');
+});
