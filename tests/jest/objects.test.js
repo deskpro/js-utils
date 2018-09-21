@@ -11,6 +11,7 @@ test('objectKeyFilter', () => {
   const result = objects.objectKeyFilter(props, propTypes);
   expect(result.className).toBe(undefined);
   expect(result.title).not.toBe(undefined);
+  expect(result.title).toBe('foo');
 });
 
 test('objectForEach', () => {

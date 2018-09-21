@@ -41,3 +41,7 @@ npm i @deskpro/js-utils --save
   Iterates over an object.
 * [objects/objectMap](docs/objects/object_map.md)  
   Creates an array from the results of calling a function on each item in an object.
+
+### Strings
+* [strings/trimString](docs/strings/trim_string.md)  
+  Trim a string to a certain length with an ellipsis
