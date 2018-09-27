@@ -21,6 +21,9 @@ npm i @deskpro/js-utils --save
   
 ## Utilities
 
+* [debounce](docs/debounce.md)  
+  Allow to debounce a function
+
 * [newid](docs/newid.md)  
   Generates a unique id value.
 * [noop](docs/noop.md)  
