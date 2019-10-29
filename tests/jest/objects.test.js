@@ -45,3 +45,30 @@ test('objectMap', () => {
   expect(results[0]).toBe('ITEM');
   expect(results[1]).toBe('FOO');
 });
+
+test('deepMerge', () => {
+  const object1 = {
+    name: 'Name',
+    notChanged: 'not changed',
+    children: {
+      title: 'title'
+    }
+  };
+
+  const object2 = {
+    name: 'New name',
+    newAttribute: 'new attribute',
+    children: {
+      color: 'blue',
+      title: 'new title'
+    }
+  };
+  const result = objects.deepMerge(object1, object2);
+  expect(result).toEqual({
+    name: 'New name',
+    notChanged: 'not changed',
+    children: {
+      title: 'new title',
+    }
+  });
+});
