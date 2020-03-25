@@ -1,6 +1,6 @@
 {
   "name": "@deskpro/js-utils",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Deskpro library of common js methods",
   "main": "dist/main.js",
   "scripts": {
@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/deskpro/js-utils#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "coveralls": "^3.0.0",
-    "jest": "^22.4.3",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "coveralls": "3.0.11",
+    "jest": "25.1.0",
     "path": "^0.12.7",
     "rimraf": "^2.6.2"
   },
