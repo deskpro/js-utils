@@ -28,5 +28,8 @@
     "jest": "^22.4.3",
     "path": "^0.12.7",
     "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12"
   }
 }
