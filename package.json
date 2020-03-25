@@ -1,6 +1,6 @@
 {
   "name": "@deskpro/js-utils",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Deskpro library of common js methods",
   "main": "dist/main.js",
   "scripts": {
@@ -30,6 +30,6 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "immutable": "^4.0.0-rc.12"
+    "immutable": "3.8.2"
   }
 }
