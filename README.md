@@ -48,3 +48,5 @@ npm i @deskpro/js-utils --save
 ### Strings
 * [strings/trimString](docs/strings/trim_string.md)  
   Trim a string to a certain length with an ellipsis
+* [strings/capitalize](docs/strings/capitalize.md)  
+  Put the first letter of a string in capital
