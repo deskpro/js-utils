@@ -1,21 +1,29 @@
 var addSorting = (function () {
-    "use strict";
+
     var cols,
         currentSort = {
-            index: 0,
-            desc: false
+            "index": 0,
+            "desc": false
         };
 
-    // returns the summary table element
-    function getTable() { return document.querySelector('.coverage-summary'); }
-    // returns the thead element of the summary table
-    function getTableHeader() { return getTable().querySelector('thead tr'); }
-    // returns the tbody element of the summary table
-    function getTableBody() { return getTable().querySelector('tbody'); }
-    // returns the th element for nth column
-    function getNthColumn(n) { return getTableHeader().querySelectorAll('th')[n]; }
+    // Returns the summary table element
+    function getTable() {
+ return document.querySelector('.coverage-summary');
+}
+    // Returns the thead element of the summary table
+    function getTableHeader() {
+ return getTable().querySelector('thead tr');
+}
+    // Returns the tbody element of the summary table
+    function getTableBody() {
+ return getTable().querySelector('tbody');
+}
+    // Returns the th element for nth column
+    function getNthColumn(n) {
+ return getTableHeader().querySelectorAll('th')[n];
+}
 
-    // loads all columns
+    // Loads all columns
     function loadColumns() {
         var colNodes = getTableHeader().querySelectorAll('th'),
             colNode,
@@ -26,20 +34,20 @@ var addSorting = (function () {
         for (i = 0; i < colNodes.length; i += 1) {
             colNode = colNodes[i];
             col = {
-                key: colNode.getAttribute('data-col'),
-                sortable: !colNode.getAttribute('data-nosort'),
-                type: colNode.getAttribute('data-type') || 'string'
+                "key": colNode.getAttribute('data-col'),
+                "sortable": !colNode.getAttribute('data-nosort'),
+                "type": colNode.getAttribute('data-type') || 'string'
             };
             cols.push(col);
             if (col.sortable) {
                 col.defaultDescSort = col.type === 'number';
-                colNode.innerHTML = colNode.innerHTML + '<span class="sorter"></span>';
+                colNode.innerHTML += '<span class="sorter"></span>';
             }
         }
         return cols;
     }
-    // attaches a data attribute to every tr element with an object
-    // of data values keyed by column name
+    // Attaches a data attribute to every tr element with an object
+    // Of data values keyed by column name
     function loadRowData(tableRow) {
         var tableCols = tableRow.querySelectorAll('td'),
             colNode,
@@ -58,7 +66,7 @@ var addSorting = (function () {
         }
         return data;
     }
-    // loads all row data
+    // Loads all row data
     function loadData() {
         var rows = getTableBody().querySelectorAll('tr'),
             i;
@@ -67,7 +75,7 @@ var addSorting = (function () {
             rows[i].data = loadRowData(rows[i]);
         }
     }
-    // sorts the table using the data for the ith column
+    // Sorts the table using the data for the ith column
     function sortByIndex(index, desc) {
         var key = cols[index].key,
             sorter = function (a, b) {
@@ -98,7 +106,7 @@ var addSorting = (function () {
             tableBody.appendChild(rows[i]);
         }
     }
-    // removes sort indicators for current column being sorted
+    // Removes sort indicators for current column being sorted
     function removeSortIndicators() {
         var col = getNthColumn(currentSort.index),
             cls = col.className;
@@ -106,11 +114,11 @@ var addSorting = (function () {
         cls = cls.replace(/ sorted$/, '').replace(/ sorted-desc$/, '');
         col.className = cls;
     }
-    // adds sort indicators for current column being sorted
+    // Adds sort indicators for current column being sorted
     function addSortIndicators() {
         getNthColumn(currentSort.index).className += currentSort.desc ? ' sorted-desc' : ' sorted';
     }
-    // adds event listeners for all sorter widgets
+    // Adds event listeners for all sorter widgets
     function enableUI() {
         var i,
             el,
@@ -130,10 +138,10 @@ var addSorting = (function () {
                     addSortIndicators();
                 };
             };
-        for (i =0 ; i < cols.length; i += 1) {
+        for (i = 0; i < cols.length; i += 1) {
             if (cols[i].sortable) {
-                // add the click event handler on the th so users
-                // dont have to click on those tiny arrows
+                // Add the click event handler on the th so users
+                // Dont have to click on those tiny arrows
                 el = getNthColumn(i).querySelector('.sorter').parentElement;
                 if (el.addEventListener) {
                     el.addEventListener('click', ithSorter(i));
@@ -143,7 +151,7 @@ var addSorting = (function () {
             }
         }
     }
-    // adds sorting functionality to the UI
+    // Adds sorting functionality to the UI
     return function () {
         if (!getTable()) {
             return;
@@ -153,6 +161,6 @@ var addSorting = (function () {
         addSortIndicators();
         enableUI();
     };
-})();
+}());
 
 window.addEventListener('load', addSorting);

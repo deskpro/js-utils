@@ -1,12 +1,12 @@
 var jumpToCode = (function init () {
   // Classes of code we would like to highlight
-  var missingCoverageClasses = [ '.cbranch-no', '.cstat-no', '.fstat-no' ];
+  var missingCoverageClasses = ['.cbranch-no', '.cstat-no', '.fstat-no'];
 
   // We don't want to select elements that are direct descendants of another match
-  var notSelector = ':not(' + missingCoverageClasses.join('):not(') + ') > '; // becomes `:not(a):not(b) > `
+  var notSelector = ':not(' + missingCoverageClasses.join('):not(') + ') > '; // Becomes `:not(a):not(b) > `
 
   // Selecter that finds elements on the page to which we can jump
-  var selector = notSelector + missingCoverageClasses.join(', ' + notSelector); // becomes `:not(a):not(b) > a, :not(a):not(b) > b`
+  var selector = notSelector + missingCoverageClasses.join(', ' + notSelector); // Becomes `:not(a):not(b) > a, :not(a):not(b) > b`
 
   // The NodeList of matching elements
   var missingCoverageElements = document.querySelectorAll(selector);
@@ -22,7 +22,9 @@ var jumpToCode = (function init () {
     toggleClass(index);
     currentIndex = index;
     missingCoverageElements.item(index)
-      .scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+      .scrollIntoView({"behavior": 'smooth',
+"block": 'center',
+"inline": 'center'});
   }
 
   function goToPrevious() {
@@ -39,7 +41,7 @@ var jumpToCode = (function init () {
   function goToNext() {
     var nextIndex = 0;
 
-    if (typeof currentIndex === 'number' && currentIndex < (missingCoverageElements.length - 1)) {
+    if (typeof currentIndex === 'number' && currentIndex < missingCoverageElements.length - 1) {
       nextIndex = currentIndex + 1;
     }
 
@@ -48,13 +50,13 @@ var jumpToCode = (function init () {
 
   return function jump(event) {
     switch (event.which) {
-      case 78: // n
-      case 74: // j
+      case 78: // N
+      case 74: // J
         goToNext();
         break;
-      case 66: // b
-      case 75: // k
-      case 80: // p
+      case 66: // B
+      case 75: // K
+      case 80: // P
         goToPrevious();
         break;
     }

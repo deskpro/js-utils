@@ -1,9 +1,7 @@
 import { objects } from '../../src';
 
 test('objectKeyFilter', () => {
-  const propTypes = {
-    className: 'string'
-  };
+  const propTypes = { className: 'string' };
   const props = {
     className: 'dp-item',
     title:     'foo'
@@ -48,27 +46,23 @@ test('objectMap', () => {
 
 test('deepMerge', () => {
   const object1 = {
-    name: 'Name',
+    name:       'Name',
     notChanged: 'not changed',
-    children: {
-      title: 'title'
-    }
+    children:   { title: 'title' }
   };
 
   const object2 = {
-    name: 'New name',
+    name:         'New name',
     newAttribute: 'new attribute',
-    children: {
+    children:     {
       color: 'blue',
       title: 'new title'
     }
   };
   const result = objects.deepMerge(object1, object2);
   expect(result).toEqual({
-    name: 'New name',
+    name:       'New name',
     notChanged: 'not changed',
-    children: {
-      title: 'new title',
-    }
+    children:   { title: 'new title' }
   });
 });
