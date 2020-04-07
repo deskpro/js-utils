@@ -26,4 +26,15 @@ test('debounce', () => {
 
   jest.runAllTimers();
   expect(callback).toHaveBeenCalledTimes(2);
+
+  const debouncedCallbackImmediate = debounce(callback, 250, true);
+
+  debouncedCallbackImmediate();
+  debouncedCallbackImmediate();
+
+  // At this point in time, the callback should have been called only one more time
+  expect(callback).toHaveBeenCalledTimes(3);
+  jest.runAllTimers();
+
+  expect(callback).toHaveBeenCalledTimes(3);
 });

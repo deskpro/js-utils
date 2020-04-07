@@ -3,7 +3,7 @@ noop
 Allow to debounce a function
 
 ```js
-function debounce(callback:function, [time]:number)
+function debounce(callback:function, [time]:number, [immediate]:boolean)
 ```
 
 ### Args
@@ -13,6 +13,9 @@ The callback to run after the function has not been called since `time`
 
 **time:number**
 The time to wait before running the `callback`
+
+**immediate:boolean**
+If the callback needs to be triggered immediately
 
 ### Examples
 
