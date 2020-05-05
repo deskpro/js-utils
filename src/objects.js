@@ -82,7 +82,7 @@ export function deepMerge(a, b) {
     let originalValue = a[key],
       value = originalValue
 
-    if (b.hasOwnProperty(key)) {
+    if (b && b.hasOwnProperty(key)) {
       value = b[key]
     }
 
