@@ -1,6 +1,6 @@
 {
   "name": "@deskpro/js-utils",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Deskpro library of common js methods",
   "main": "dist/main.js",
   "scripts": {
