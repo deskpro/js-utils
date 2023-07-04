@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "clean": "rimraf dist",
-    "travis-test": "npm run test -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "travis-test": "npm run test -- --coverage",
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run clean && npm run transpile",
     "lint": "eslint src/** --cache --cache-location=.cache/eslint --ext .js"
@@ -25,7 +25,6 @@
     "@babel/cli": "^7.22.6",
     "@babel/core": "^7.22.6",
     "@babel/preset-env": "^7.22.6",
-    "coveralls": "^3.1.1",
     "eslint": "^6.8.0",
     "jest": "^29.5.0",
     "path": "^0.12.7",
